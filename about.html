@@ -1,0 +1,214 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap');
+
+    :root {
+        --neon-blue: #00f2ff;
+        --neon-glow: rgba(0, 242, 255, 0.5);
+        --dark-bg: #050505;
+        --card-bg: #0f0f0f;
+        --text-gray: #b0b0b0;
+    }
+
+    body { background-color: var(--dark-bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; padding: 0; line-height: 1.8; overflow-x: hidden; }
+
+    /* --- HERO BANNER --- */
+    .about-hero {
+        height: 70vh;
+        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.9)), 
+                    url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1470&auto=format&fit=crop');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border-bottom: 5px solid var(--neon-blue);
+        box-shadow: 0 10px 40px var(--neon-glow);
+    }
+
+    .about-hero h1 {
+        font-family: 'Orbitron';
+        font-size: clamp(2.5rem, 8vw, 5.5rem);
+        font-weight: 900;
+        font-style: italic;
+        color: var(--neon-blue);
+        text-transform: uppercase;
+        margin: 0;
+        text-shadow: 0 0 25px var(--neon-blue);
+        letter-spacing: 5px;
+    }
+
+    .about-hero p { font-family: 'Orbitron'; font-size: clamp(0.8rem, 2vw, 1.2rem); letter-spacing: 8px; color: #fff; margin-top: 15px; opacity: 0.8; }
+
+    .container { max-width: 1200px; margin: 100px auto; padding: 0 25px; }
+
+    /* --- CONTENT SECTIONS --- */
+    .epic-section { display: flex; align-items: center; gap: 80px; margin-bottom: 150px; }
+    .epic-section:nth-child(even) { flex-direction: row-reverse; }
+
+    .epic-img { flex: 1; border-radius: 40px; overflow: hidden; border: 2px solid var(--neon-blue); box-shadow: 0 0 30px rgba(0,242,255,0.1); }
+    .epic-img img { width: 100%; display: block; transition: 0.8s; filter: grayscale(30%); }
+    .epic-img:hover img { transform: scale(1.1); filter: grayscale(0%) brightness(1.1); }
+
+    .epic-text { flex: 1; }
+    .epic-text h2 { font-family: 'Orbitron'; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--neon-blue); margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; }
+    .epic-text p { font-size: 1.15rem; color: var(--text-gray); text-align: left; margin-bottom: 20px; }
+
+    .highlight { color: var(--neon-blue); font-weight: 700; }
+
+    /* --- THE ARSENAL GRID --- */
+    .offerings {
+        background: var(--card-bg);
+        padding: 100px 50px;
+        border-radius: 60px;
+        border: 1px solid #222;
+        text-align: center;
+        margin-bottom: 150px;
+    }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; margin-top: 60px; }
+    .grid-item { padding: 40px 30px; background: #000; border-radius: 25px; border-bottom: 5px solid var(--neon-blue); transition: 0.4s; }
+    .grid-item:hover { transform: translateY(-15px); box-shadow: 0 15px 40px rgba(0,242,255,0.15); }
+    .grid-item i { font-size: 3.5rem; color: var(--neon-blue); margin-bottom: 25px; display: block; }
+    .grid-item h3 { font-family: 'Orbitron'; font-size: 1.4rem; margin-bottom: 15px; color: #fff; }
+    .grid-item p { color: #888; font-size: 0.95rem; }
+
+    /* --- FINAL TERMINAL BUTTON (REDESIGNED) --- */
+    .cta-container {
+        text-align: center;
+        padding: 100px 20px;
+        background: radial-gradient(circle at center, #111 0%, #000 100%);
+        border-radius: 50px;
+        border: 1px solid #222;
+        margin-bottom: 100px;
+    }
+    .cta-container h2 { font-family: 'Orbitron'; font-size: clamp(1.8rem, 5vw, 3.5rem); margin-bottom: 20px; color: #fff; text-transform: uppercase; }
+    .cta-container p { color: #666; margin-bottom: 60px; font-size: 1.1rem; }
+
+    .terminal-btn {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 25px 60px;
+        background: transparent;
+        color: var(--neon-blue);
+        font-family: 'Orbitron';
+        font-size: 1.4rem;
+        font-weight: 900;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        border: 2px solid var(--neon-blue);
+        border-radius: 5px;
+        overflow: hidden;
+        transition: 0.5s;
+        box-shadow: 0 0 20px rgba(0, 242, 255, 0.2), inset 0 0 10px rgba(0, 242, 255, 0.1);
+        cursor: pointer;
+    }
+
+    .terminal-btn:hover {
+        color: #000;
+        background: var(--neon-blue);
+        box-shadow: 0 0 50px var(--neon-blue);
+        transform: translateY(-5px);
+    }
+
+    /* Futuristic Scanline Effect on Button */
+    .terminal-btn::before {
+        content: '';
+        position: absolute;
+        top: 0; left: -100%;
+        width: 100%; height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        transition: 0.5s;
+    }
+    .terminal-btn:hover::before { left: 100%; }
+
+    @media (max-width: 900px) {
+        .epic-section, .epic-section:nth-child(even) { flex-direction: column; text-align: center; }
+        .epic-img { width: 100%; }
+        .grid { grid-template-columns: 1fr; }
+        .terminal-btn { padding: 20px 30px; font-size: 1rem; width: 80%; }
+    }
+</style>
+
+<!-- --- HERO SECTION --- -->
+<div class="about-hero">
+    <h1>THE GAME POINT</h1>
+    <p>NEXT-GEN GAMING INTELLIGENCE</p>
+</div>
+
+<div class="container">
+    
+    <!-- --- THE GRIND SECTION --- -->
+    <div class="epic-section">
+        <div class="epic-img">
+            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800" alt="Dedication"/>
+        </div>
+        <div class="epic-text">
+            <h2>The Grind Behind the Intel</h2>
+            <p>At <span class="highlight">The Game Point</span>, we believe that gaming is not just a hobby—it is a lifestyle. Our team operates like a tactical unit, working around the clock to provide you with the fastest and most reliable intelligence in the industry.</p>
+            <p>We don't just watch trailers; we analyze them at <span class="highlight">0.25x speed</span> to catch every hidden frame. We don't just report updates; we dive deep into game files to uncover what developers aren't telling you yet. Every word we write is backed by hours of research, testing, and absolute <span class="highlight">Dedication</span>.</p>
+        </div>
+    </div>
+
+    <!-- --- FUTURE VISION --- -->
+    <div class="epic-section">
+        <div class="epic-img">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800" alt="Future"/>
+        </div>
+        <div class="epic-text">
+            <h2>The Blueprint for the Future</h2>
+            <p>We are not just building a website; we are constructing a <span class="highlight">Digital Ecosystem</span> for the modern gamer. Our vision is to become the primary intelligence hub for the Indian and global gaming community.</p>
+            <p>Looking ahead, we are planning to launch exclusive eSports analytics, community-driven tournaments, and specialized hardware optimization guides. We want <span class="highlight">The Game Point</span> to be the first and last destination for anyone who takes gaming seriously.</p>
+        </div>
+    </div>
+
+    <!-- --- THE ARSENAL (OFFERINGS) --- -->
+    <div class="offerings">
+        <h2 style="font-family: 'Orbitron'; font-size: clamp(2rem, 5vw, 3.5rem); color: var(--neon-blue);">Inside The Arsenal</h2>
+        <p style="color: #666; font-size: 1.1rem; letter-spacing: 2px;">DEPLOYING TOP-TIER CONTENT DAILY</p>
+        
+        <div class="grid">
+            <div class="grid-item">
+                <i class="fas fa-bolt"></i>
+                <h3>Instant News</h3>
+                <p>From GTA 6 leaks to naye console releases, receive the intelligence before anyone else.</p>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-crosshairs"></i>
+                <h3>Elite Guides</h3>
+                <p>Professional walkthroughs, sensitivity settings, and tactical strategies for BGMI, Valorant, and COD.</p>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-microchip"></i>
+                <h3>Hardware Specs</h3>
+                <p>Unbiased gear analysis and RTX build guides. We test hardware to its absolute limits.</p>
+            </div>
+            <div class="grid-item">
+                <i class="fas fa-network-wired"></i>
+                <h3>The Squad</h3>
+                <p>Coming soon: Exclusive Discord access and a network of elite players to team up with.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- --- REDESIGNED CALL TO ACTION --- -->
+    <div class="cta-container">
+        <h2>Ready to Initiate Protocol?</h2>
+        <p>Join the elite ranks of The Game Point and experience gaming intelligence like never before.</p>
+        
+        <!-- THE NEW MASTER BUTTON -->
+        <a href="/" class="terminal-btn">
+            <i class="fas fa-terminal" style="margin-right: 15px;"></i>
+            Access Main Terminal
+        </a>
+    </div>
+
+</div>
+
+<!-- --- FOOTER INFO --- -->
+<div style="text-align: center; padding: 60px; color: #333; font-family: 'Orbitron'; font-size: 0.75rem; letter-spacing: 4px; border-top: 1px solid #111;">
+    SYSTEM VERSION 4.0 // ENCRYPTED ACCESS ONLY // THE GAME POINT INTEL
+  </div>
